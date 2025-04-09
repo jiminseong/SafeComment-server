@@ -1,12 +1,15 @@
-// api/recommend.js
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).send("Method Not Allowed");
 
   const { title, userComment } = req.body;
 
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("❌ GEMINI_API_KEY is undefined");
+    return res.status(500).json({ error: "API 키가 누락되었습니다" });
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
 
   const prompt = `
   영상 제목: ${title}

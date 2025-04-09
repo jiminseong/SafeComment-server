@@ -20,6 +20,7 @@ export default async function handler(req, res) {
   사용자가 작성한 댓글: ${userComment}
 
   이 댓글을 더 긍정적이고 공감 가게 개선해줘.
+  댓글형식으로 한개의 댓글만 반환하는거야, 부가적인 설명을 필요없이 댓글만
   `;
 
   try {

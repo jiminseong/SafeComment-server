@@ -1,3 +1,8 @@
-*.env
-*.node_modules
-*.packege-lock.json
+# 환경 변수 파일 (절대 커밋 금지)
+.env
+
+# Node.js 관련 디렉토리
+node_modules/
+
+# 패키지 락 파일
+package-lock.json

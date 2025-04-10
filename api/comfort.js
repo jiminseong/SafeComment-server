@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).send("Method Not Allowed");
 
-  const { title, userComment } = req.body;
+  const { title, userBadComment } = req.body;
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -11,14 +11,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "API 키가 누락되었습니다" });
   }
 
-  const ai = new GoogleGenAI({ apiKey }); // API 키를 사용하여 인스턴스 생성
+  const ai = new GoogleGenAI({ apiKey });
 
   const prompt = `
   영상 제목: ${title}
-  사용자가 작성한 댓글: ${userComment}
+  신고하려는 댓글 :  ${userBadComment}
 
-  이 댓글을 더 긍정적이고 공감 가게 개선해줘.
-  댓글형식으로 한개의 댓글만 반환하는거야, 부가적인 설명을 필요없이 댓글만
+  이 댓글을 악플이야, 이걸 발견하게 된 사용자가 위로받을 수 있도록 2~3줄의 위로글을 작성해줘
   `;
 
   try {

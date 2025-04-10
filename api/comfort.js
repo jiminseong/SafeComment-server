@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
     const text = response.text || "추천 결과 없음"; // 결과가 없을 경우 대체 텍스트
 
-    res.status(200).json({ recommendComment: text });
+    res.status(200).json({ comportText: text });
   } catch (error) {
     console.error("Gemini Error:", error);
     res.status(500).json({ error: "Gemini API 호출 실패" });

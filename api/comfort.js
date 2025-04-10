@@ -18,6 +18,7 @@ export default async function handler(req, res) {
   신고하려는 댓글 :  ${userBadComment}
 
   이 댓글을 악플이야, 이걸 발견하게 된 사용자가 위로받을 수 있도록 2~3줄의 위로글을 작성해줘
+  악플이 아니리면 false를 반환해줘
   `;
 
   try {
@@ -29,7 +30,7 @@ export default async function handler(req, res) {
 
     const text = response.text || "추천 결과 없음"; // 결과가 없을 경우 대체 텍스트
 
-    res.status(200).json({ comportText: text });
+    res.status(200).json({ comfortText: text });
   } catch (error) {
     console.error("Gemini Error:", error);
     res.status(500).json({ error: "Gemini API 호출 실패" });

@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   신고하려는 댓글 :  ${userBadComment}
 
   이 댓글을 악플이야, 이걸 발견하게 된 사용자가 위로받을 수 있도록 2~3줄의 위로글을 작성해줘
-  악플이 아니리면 false를 반환해줘
+  악플이 아니리면 "false"만을 반환해줘 절대로 "false\n" 와 같이 \n을 포함하면 안돼
   `;
 
   try {

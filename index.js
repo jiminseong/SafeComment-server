@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import checkHandler from "./api/checkHandler.js";
 import comfortHandler from "./api/comfortHandler.js";
 import recommendHandler from "./api/recommendHandler.js";
+import cors from "cors";
 
 dotenv.config();
 const app = express();

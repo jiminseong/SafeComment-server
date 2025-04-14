@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import checkHandler from "./api/checkHandler.js";
-import comfortHandler from "./api/comforthandler.js";
+import comfortHandler from "./api/comfortHandler.js";
 import recommendHandler from "./api/recommendHandler.js";
 
 dotenv.config();
